@@ -26,23 +26,41 @@ function playerSelection() {
     }
 }
 
+let playerScore = 0,
+    computerScore = 0,
+    drawScore = 0,
+    invalidInput = 0;
+
 function round(computerSelection, playerSelection) {
     console.log(
         `Your choice: ${playerSelection}. \nComputer's choice: ${computerSelection}.`
     );
     if (playerSelection === "Invalid input") {
-        console.log("Invalid input.");
+        invalidInput++;
+        return "Invalid input.";
     } else if (
         (playerSelection === "Rock" && computerSelection === "Scissors") ||
         (playerSelection === "Paper" && computerSelection === "Rock") ||
         (playerSelection === "Scissors" && computerSelection === "Paper")
     ) {
-        console.log(`You Win! ${playerSelection} beats ${computerSelection}.`);
+        playerScore++;
+        return `You Win! ${playerSelection} beats ${computerSelection}.`;
     } else if (playerSelection === computerSelection) {
-        console.log("Draw!");
+        drawScore++;
+        return "Draw!";
     } else {
-        console.log(`You Lose! ${computerSelection} beats ${playerSelection}.`);
+        computerScore++;
+        return `You Lose! ${computerSelection} beats ${playerSelection}.`;
     }
 }
 
-round(getComputerChoice(), playerSelection());
+function game() {
+    for (let i = 0; i < 5; i++) {
+        console.log(round(getComputerChoice(), playerSelection()));
+    }
+    console.log(
+        `Computer score: ${computerScore}. \nYour score: ${playerScore}. \nDraws: ${drawScore}. \nInvalid inputs: ${invalidInput}.`
+    );
+}
+
+game();
