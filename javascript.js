@@ -1,26 +1,26 @@
-console.log("Hello World");
-
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3);
     switch (randomNumber) {
         case 0:
-            return "rock";
+            return "Rock";
         case 1:
-            return "paper";
+            return "Paper";
         case 2:
-            return "scissors";
+            return "Scissors";
     }
 }
 
 function playerSelection() {
-    let input = prompt("Enter your choice").toLowerCase();
+    let input = prompt(
+        "Enter your choice (Rock, Paper, Scissors)"
+    ).toLowerCase();
     switch (input) {
         case "rock":
-            return "rock";
+            return "Rock";
         case "paper":
-            return "paper";
+            return "Paper";
         case "scissors":
-            return "scissors";
+            return "Scissors";
         default:
             return "Invalid input";
     }
@@ -28,18 +28,20 @@ function playerSelection() {
 
 function round(computerSelection, playerSelection) {
     console.log(
-        `Your choice: ${playerSelection}. Computer's choice: ${computerSelection}`
+        `Your choice: ${playerSelection}. \nComputer's choice: ${computerSelection}.`
     );
-    if (
-        (playerSelection === "rock" && computerSelection === "scissors") ||
-        (playerSelection === "paper" && computerSelection === "rock") ||
-        (playerSelection === "scissors" && computerSelection === "paper")
+    if (playerSelection === "Invalid input") {
+        console.log("Invalid input.");
+    } else if (
+        (playerSelection === "Rock" && computerSelection === "Scissors") ||
+        (playerSelection === "Paper" && computerSelection === "Rock") ||
+        (playerSelection === "Scissors" && computerSelection === "Paper")
     ) {
-        console.log("You Win!");
+        console.log(`You Win! ${playerSelection} beats ${computerSelection}.`);
     } else if (playerSelection === computerSelection) {
         console.log("Draw!");
     } else {
-        console.log("You Lose!");
+        console.log(`You Lose! ${computerSelection} beats ${playerSelection}.`);
     }
 }
 
