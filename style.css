@@ -15,24 +15,38 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 100px;
 }
 
-.option_rock,
-.option_paper,
-.option_scissor {
+#option_rock,
+#option_paper,
+#option_scissor {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.option_rock img,
-.option_paper img,
-.option_scissor img {
-    height: 200px;
+#option_rock img,
+#option_paper img,
+#option_scissor img {
+    height: 150px;
 }
 
 #pannel {
     display: flex;
     justify-content: center;
     align-items: center;
+    justify-content: space-evenly;
+}
+
+#computer_choose,
+#player_choose {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#computer_choose img,
+#player_choose img {
+    height: 150px;
 }
