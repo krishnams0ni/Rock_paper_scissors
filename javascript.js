@@ -4,11 +4,31 @@ let rounds = document.querySelector("#rounds").value,
     playerScore = 0,
     computerScore = 0;
 
-function checkGameOver(i) {
-    if (i <= rounds) {
+function checkGameOver(i, playerSelection, computerSelection) {
+    if (i < rounds) {
+        whoWins(playerSelection, computerSelection);
+        updateImages(playerSelection, computerSelection);
         return false;
     } else {
-        alert("Game Over");
+        let result;
+        whoWins(playerSelection, computerSelection);
+        if (playerScore > computerScore) {
+            result = "You win!";
+        } else if (playerScore < computerScore) {
+            result = "Computer wins!";
+        } else {
+            result = "It's a draw!";
+        }
+        alert(
+            result +
+                "\nComputer: " +
+                computerScore +
+                "\nPlayer: " +
+                playerScore +
+                "\nDraw: " +
+                drawScore
+        );
+        reset();
     }
 }
 
@@ -30,25 +50,19 @@ const rockButton = document.querySelector("#option_rock");
 rockButton.addEventListener("click", () => {
     playerSelection = "Rock";
     computerSelection = getComputerChoice();
-    whoWins(playerSelection, computerSelection);
-    updateImages(playerSelection, computerSelection);
-    checkGameOver(++count);
+    checkGameOver(++count, playerSelection, computerSelection);
 });
 const paperButton = document.querySelector("#option_paper");
 paperButton.addEventListener("click", () => {
     playerSelection = "Paper";
     computerSelection = getComputerChoice();
-    whoWins(playerSelection, computerSelection);
-    updateImages(playerSelection, computerSelection);
-    checkGameOver(++count);
+    checkGameOver(++count, playerSelection, computerSelection);
 });
 const scissorButton = document.querySelector("#option_scissor");
 scissorButton.addEventListener("click", () => {
     playerSelection = "Scissor";
     computerSelection = getComputerChoice();
-    whoWins(playerSelection, computerSelection);
-    updateImages(playerSelection, computerSelection);
-    checkGameOver(++count);
+    checkGameOver(++count, playerSelection, computerSelection);
 });
 
 function getComputerChoice() {
