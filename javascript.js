@@ -1,83 +1,111 @@
-let playerSelection,
-    computerSelection,
-    playerScore = 0,
-    computerScore = 0,
-    drawScore = 0;
-
 let rounds = document.querySelector("#rounds").value,
-    count = 0;
+    count = 0,
+    drawScore = 0,
+    playerScore = 0,
+    computerScore = 0;
 
 function checkGameOver(i) {
-    if (i < rounds) {
+    if (i <= rounds) {
         return false;
     } else {
-        prompt("Game Over");
-        play();
+        alert("Game Over");
     }
 }
 
-play();
-
-function play() {
-    const rockButton = document.querySelector("#option_rock");
-    rockButton.addEventListener("click", () => {
-        playerSelection = "Rock";
-        computerSelection = getComputerChoice();
-        let winner = whoWins(playerSelection, computerSelection);
-        updateHTML(playerSelection, computerSelection, winner);
-        checkGameOver(++count);
-    });
-    const paperButton = document.querySelector("#option_paper");
-    paperButton.addEventListener("click", () => {
-        playerSelection = "Paper";
-        computerSelection = getComputerChoice();
-        let winner = whoWins(playerSelection, computerSelection);
-        updateHTML(playerSelection, computerSelection, winner);
-        checkGameOver(++count);
-    });
-    const scissorsButton = document.querySelector("#option_scissor");
-    scissorsButton.addEventListener("click", () => {
-        playerSelection = "Scissors";
-        computerSelection = getComputerChoice();
-        let winner = whoWins(playerSelection, computerSelection);
-        updateHTML(playerSelection, computerSelection, winner);
-        checkGameOver(++count);
-    });
-
-    function getComputerChoice() {
-        let randomNumber = Math.floor(Math.random() * 3);
-        switch (randomNumber) {
-            case 0:
-                return "Rock";
-            case 1:
-                return "Paper";
-            case 2:
-                return "Scissors";
+roundsInput = document.querySelector("#rounds");
+roundsInput.addEventListener("change", () => {
+    if (count > 0) {
+        let choice = confirm(
+            "You can't change the number of rounds after the game has started. Do you want to quit?"
+        );
+        if (choice == true) {
+            reset();
         }
+    } else {
+        rounds = roundsInput.value;
     }
+});
+
+const rockButton = document.querySelector("#option_rock");
+rockButton.addEventListener("click", () => {
+    playerSelection = "Rock";
+    computerSelection = getComputerChoice();
+    whoWins(playerSelection, computerSelection);
+    updateImages(playerSelection, computerSelection);
+    checkGameOver(++count);
+});
+const paperButton = document.querySelector("#option_paper");
+paperButton.addEventListener("click", () => {
+    playerSelection = "Paper";
+    computerSelection = getComputerChoice();
+    whoWins(playerSelection, computerSelection);
+    updateImages(playerSelection, computerSelection);
+    checkGameOver(++count);
+});
+const scissorButton = document.querySelector("#option_scissor");
+scissorButton.addEventListener("click", () => {
+    playerSelection = "Scissor";
+    computerSelection = getComputerChoice();
+    whoWins(playerSelection, computerSelection);
+    updateImages(playerSelection, computerSelection);
+    checkGameOver(++count);
+});
+
+function getComputerChoice() {
+    let randomNumber = Math.floor(Math.random() * 3);
+    switch (randomNumber) {
+        case 0:
+            return "Rock";
+        case 1:
+            return "Paper";
+        case 2:
+            return "Scissor";
+    }
+}
+
+function reset() {
+    rounds = document.querySelector("#rounds").value;
+    count = 0;
+    drawScore = 0;
+    playerScore = 0;
+    computerScore = 0;
+    document.querySelector("#draw").textContent = `Draw: ${drawScore}`;
+    document.querySelector("#player").textContent = `Player: ${playerScore}`;
+    document.querySelector(
+        "#computer"
+    ).textContent = `Computer: ${computerScore}`;
+    document.querySelector("#player_choose img").setAttribute("src", "");
+    document.querySelector("#computer_choose img").setAttribute("src", "");
 }
 
 function whoWins(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-        return "draw";
+        drawScore++;
+        document.querySelector("#draw").textContent = `Draw: ${drawScore}`;
     } else if (
-        (playerSelection === "Rock" && computerSelection === "Scissors") ||
+        (playerSelection === "Rock" && computerSelection === "Scissor") ||
         (playerSelection === "Paper" && computerSelection === "Rock") ||
-        (playerSelection === "Scissors" && computerSelection === "Paper")
+        (playerSelection === "Scissor" && computerSelection === "Paper")
     ) {
-        return "player";
+        playerScore++;
+        document.querySelector(
+            "#player"
+        ).textContent = `Player: ${playerScore}`;
     } else {
-        return "computer";
+        computerScore++;
+        document.querySelector(
+            "#computer"
+        ).textContent = `Computer: ${computerScore}`;
     }
 }
 
-function updateHTML(playerSelection, computerSelection, result) {
+function updateImages(playerSelection, computerSelection) {
     const computerImage = document.querySelector("#computer_choose img");
     if (computerSelection === "Rock") {
         computerImage.setAttribute("src", "img/rock.png");
     } else if (computerSelection === "Paper") {
         computerImage.setAttribute("src", "img/paper.png");
-    } else if (computerSelection === "Scissors") {
+    } else if (computerSelection === "Scissor") {
         computerImage.setAttribute("src", "img/scissor.png");
     }
 
@@ -86,19 +114,7 @@ function updateHTML(playerSelection, computerSelection, result) {
         playerImage.setAttribute("src", "img/rock.png");
     } else if (playerSelection === "Paper") {
         playerImage.setAttribute("src", "img/paper.png");
-    } else if (playerSelection === "Scissors") {
+    } else if (playerSelection === "Scissor") {
         playerImage.setAttribute("src", "img/scissor.png");
-    }
-
-    if (result === "player") {
-        document.querySelector(
-            "#player"
-        ).textContent = `Player: ${++playerScore}`;
-    } else if (result === "computer") {
-        document.querySelector(
-            "#computer"
-        ).textContent = `Computer: ${++computerScore}`;
-    } else if (result === "draw") {
-        document.querySelector("#draw").textContent = `Draw: ${++drawScore}`;
     }
 }
