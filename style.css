@@ -69,16 +69,17 @@ body {
 
 #rounds {
     width: 40px;
-    background-color: rgba(191, 191, 191, 0.406);
+    background-color: rgba(191, 191, 191, 0);
     color: white;
     border: 0px;
     border-radius: 5px;
+    font-size: 21px;
 }
 
 .subHeadings {
     padding: 5px 0px;
     text-align: center;
-    font-size: larger;
+    font-size: 21px;
 }
 
 #choose {
