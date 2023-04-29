@@ -9,23 +9,13 @@
 </head>
 
 <body>
-    <div id="info">
-        <p>
-            Rock paper scissors, believed to have originated in Japan as "jan-ken-pon," is a classic game enjoyed
-            worldwide. It's played for fun, as a tiebreaker or even as a decision-making tool. With many variations like
-            "rock paper scissors lizard Spock," players must make strategic choices based on their opponent's past moves
-            and body language, making it a fun and challenging game of strategy. Interestingly, it's also been studied
-            for its applications in decision-making and conflict resolution. Rock paper scissors is a beloved game that
-            has stood the test of time, providing entertainment and fair play to people worldwide.</p>
-    </div>
-
     <div id="content">
         <div id="header">
             <h1>A simple game of Rock, Paper, and Scissor</h1>
         </div>
 
         <div id="choose">
-            <img src="img/rock.png" alt="rock" id="option_rock">
+            <img src="img/rock.png" alt="rock" ied="option_rock">
             <img src="img/paper.png" alt="paper" id="option_paper">
             <img src="img/scissor.png" alt="scissor" id="option_scissor">
         </div>
@@ -33,25 +23,40 @@
         <div id="pannel">
             <div id="score">
                 <div class="subHeadings">Number of rounds: <input type="number" value="3" id="rounds"></div>
-                <h2>Score</h2>
-                <p id="player">Player: 0</p>
-                <p id="computer">Computer: 0</p>
-                <p id="draw">Draw: 0</p>
+                <div id="scoreNum">
+                    <p id="player">Player: 0</p>
+                    <p id="computer">Computer: 0</p>
+                    <p id="draw">Draw: 0</p>
+                </div>
             </div>
 
             <div id="player_choose">
                 <div class="subHeadings">Player</div>
-                <img src="">
+                <div id="playerHand">
+                    <img src="">
+                </div>
             </div>
 
             <div id="computer_choose">
                 <div class="subHeadings">
-                    Compute</div>
-                <img src="">
+                    Computer</div>
+                <div id="compHand">
+                    <img src="">
+                </div>
             </div>
         </div>
     </div>
 
+    <div id="info">
+        <p id="text">
+            Rock paper scissors, believed to have originated in Japan as "jan-ken-pon," is a classic game enjoyed
+            worldwide. It's played for fun, as a tiebreaker or even as a decision-making tool. With many variations like
+            "rock paper scissors lizard Spock," players must make strategic choices based on their opponent's past moves
+            and body language, making it a fun and challenging game of strategy. Interestingly, it's also been studied
+            for its applications in decision-making and conflict resolution. Rock paper scissors is a beloved game that
+            has stood the test of time, providing entertainment and fair play to people worldwide.</p>
+        <p id="madeBy">Made by <a href="https://krishnams0ni.github.io/" target="_blank">krishnams0ni</a></p>
+    </div>
 </body>
 
 </html>
