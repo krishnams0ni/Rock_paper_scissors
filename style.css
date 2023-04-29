@@ -2,9 +2,7 @@
 
 html {
     display: flex;
-    align-items: center;
     justify-content: center;
-    height: 100%;
     font-family: "Titillium Web", sans-serif;
 }
 
@@ -16,34 +14,48 @@ body {
     align-items: center;
     justify-content: center;
     gap: 20px;
-    height: 90%;
-    width: 95%;
+    margin: 20px;
 }
 
 #info {
     width: 40%;
     background-color: rgba(80, 80, 80, 0.414);
-    height: 100%;
     border-radius: 20px;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 #info p {
     padding: 0px 20px;
-    font-size: x-large;
+    flex: 1;
+    font-size: large;
+}
+
+#info h1 {
+    background-color: black;
+    font-size: 20px;
+    margin: 0px;
+    text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+#info h1 a {
+    color: rgb(78, 222, 255);
+    text-decoration: none;
 }
 
 #content {
     display: flex;
     flex-direction: column;
     border-radius: 20px;
-    background-color: rgba(54, 54, 54, 0.4);
-    max-width: 60%;
-    height: 100%;
+    background-color: rgba(54, 54, 54, 0.631);
+    width: 60%;
 }
 
 #header {
     background-color: rgba(0, 0, 0, 0.443);
-    width: 100%;
     text-align: center;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -70,10 +82,10 @@ body {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    flex: 1;
     justify-content: space-around;
     background-color: rgba(111, 111, 111, 0.323);
     padding: 20px;
-    height: 100%;
 }
 
 #choose img {
@@ -82,19 +94,28 @@ body {
 
 #pannel {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
+    height: 100%;
+}
+
+#score,
+#computer_choose,
+#player_choose {
+    background-color: rgba(30, 30, 30, 0.514);
+    width: 33.3%;
 }
 
 #score {
-    background-color: rgba(30, 30, 30, 0.514);
-    width: 33.3%;
     border-bottom-left-radius: 20px;
+}
+
+#computer_choose {
+    border-bottom-right-radius: 20px;
 }
 
 #score p,
 #score h2 {
-    padding: 0px 20px;
+    margin: 0px;
+    padding-left: 20px;
 }
 
 #computer_choose,
@@ -102,21 +123,18 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 33.3%;
 }
 
 #computer_choose img,
 #player_choose img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 200px;
 }
 
-#player_choose {
-    border-right-width: 5px;
+#player_choose,
+#score {
+    border-right-width: 3px;
     border-right-style: solid;
-    border-right-color: rgb(94, 94, 94);
+    border-right-color: rgba(0, 0, 0, 0.721);
 }
 
 #player_choose img {
