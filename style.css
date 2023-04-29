@@ -15,7 +15,9 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-right: 0;
+
+    /* margin left because order of flexbox items changed by 'order' property */
+    margin-left: 0;
 }
 
 #info {
@@ -25,6 +27,7 @@ body {
     flex-direction: column;
     font-size: 21px;
     flex: 1 1 400px;
+    order: 1;
 }
 
 #info p {
@@ -58,6 +61,7 @@ body {
     flex-direction: column;
     border-radius: 10px;
     flex: 1 1 600px;
+    order: 2;
 }
 
 #header {
