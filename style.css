@@ -6,7 +6,6 @@ html {
     justify-content: center;
     height: 100%;
     font-family: "Titillium Web", sans-serif;
-    font-size: large;
 }
 
 body {
@@ -22,68 +21,49 @@ body {
 }
 
 #info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     width: 40%;
-    background-color: rgba(80, 80, 80, 0.79);
+    background-color: rgba(80, 80, 80, 0.414);
     height: 100%;
     border-radius: 20px;
-    font-size: large;
 }
 
-#text {
-    padding: 20px;
-    margin: 0px;
-}
-
-#madeBy {
-    background-color: rgba(0, 0, 0, 0.669);
-    text-align: center;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    margin: 0px;
-}
-
-#madeBy a {
-    color: rgb(80, 190, 241);
-    text-decoration: none;
-    font-weight: bold;
+#info p {
+    padding: 0px 20px;
+    font-size: x-large;
 }
 
 #content {
     display: flex;
     flex-direction: column;
     border-radius: 20px;
-    background-color: rgba(0, 0, 0, 0.397);
+    background-color: rgba(54, 54, 54, 0.4);
     max-width: 60%;
     height: 100%;
 }
 
 #header {
+    background-color: rgba(0, 0, 0, 0.443);
+    width: 100%;
+    text-align: center;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
 
-#header,
-.subHeadings {
-    background-color: rgba(0, 0, 0, 0.443);
-    width: 100%;
-    text-align: center;
-    padding: 0px;
-    font-size: 18px;
-}
-
-#header h1 {
-    margin: 0px 20px;
-}
-
 #rounds {
     width: 40px;
-    background-color: rgba(255, 18, 18, 0);
+    background-color: rgba(191, 191, 191, 0.406);
     color: white;
     border: 0px;
-    font-size: large;
+    border-radius: 5px;
+}
+
+.subHeadings {
+    background-color: rgba(81, 81, 81, 0.276);
+    color: white;
+    width: 100%;
+    padding: 5px 0px;
+    text-align: center;
+    font-size: larger;
 }
 
 #choose {
@@ -91,6 +71,7 @@ body {
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-around;
+    background-color: rgba(111, 111, 111, 0.323);
     padding: 20px;
     height: 100%;
 }
@@ -101,23 +82,19 @@ body {
 
 #pannel {
     display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: space-around;
-    flex: 1;
+    justify-content: space-between;
+    width: 100%;
 }
 
 #score {
+    background-color: rgba(30, 30, 30, 0.514);
     width: 33.3%;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    border-bottom-left-radius: 20px;
 }
 
 #score p,
 #score h2 {
     padding: 0px 20px;
-    margin: 0px;
 }
 
 #computer_choose,
@@ -136,35 +113,13 @@ body {
     height: 200px;
 }
 
-#player_choose,
-#score {
-    border-right-width: 2px;
+#player_choose {
+    border-right-width: 5px;
     border-right-style: solid;
-    border-right-color: rgba(0, 0, 0, 0.761);
+    border-right-color: rgb(94, 94, 94);
 }
 
 #player_choose img {
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
-}
-
-#player {
-    color: green;
-}
-
-#computer {
-    color: red;
-}
-
-#draw {
-    color: yellow;
-}
-
-#scoreNum {
-    background-color: rgba(0, 0, 0, 0.678);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    height: 100%;
-    font-size: 28px;
 }
