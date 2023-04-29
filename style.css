@@ -10,26 +10,30 @@ body {
     color: white;
     background-image: url(img/bg.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 20px;
     margin: 20px;
 }
 
 #info {
-    width: 40%;
+    width: 35%;
     background-color: rgba(80, 80, 80, 0.414);
-    border-radius: 20px;
+    border-radius: 10px;
     min-height: 100%;
     display: flex;
+    min-width: 500px;
     flex-direction: column;
+    font-size: 21px;
 }
 
 #info p {
     padding: 0px 20px;
     flex: 1;
-    font-size: large;
 }
 
 #info h1 {
@@ -37,8 +41,8 @@ body {
     font-size: 20px;
     margin: 0px;
     text-align: center;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 #info h1 a {
@@ -46,19 +50,25 @@ body {
     text-decoration: none;
 }
 
+#info,
+#pannel,
+#header {
+    background-color: rgba(0, 0, 0, 0.714);
+}
+
 #content {
     display: flex;
     flex-direction: column;
-    border-radius: 20px;
-    background-color: rgba(54, 54, 54, 0.631);
+    border-radius: 10px;
     width: 60%;
+    min-width: 500px;
+    min-height: 100%;
 }
 
 #header {
-    background-color: rgba(0, 0, 0, 0.443);
     text-align: center;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 #rounds {
@@ -70,9 +80,6 @@ body {
 }
 
 .subHeadings {
-    background-color: rgba(81, 81, 81, 0.276);
-    color: white;
-    width: 100%;
     padding: 5px 0px;
     text-align: center;
     font-size: larger;
@@ -84,7 +91,7 @@ body {
     flex-wrap: wrap;
     flex: 1;
     justify-content: space-around;
-    background-color: rgba(111, 111, 111, 0.323);
+    background-color: rgba(0, 0, 0, 0.396);
     padding: 20px;
 }
 
@@ -100,22 +107,24 @@ body {
 #score,
 #computer_choose,
 #player_choose {
-    background-color: rgba(30, 30, 30, 0.514);
     width: 33.3%;
 }
 
-#score {
-    border-bottom-left-radius: 20px;
+#pannel {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 #computer_choose {
-    border-bottom-right-radius: 20px;
+    border-bottom-right-radius: 10px;
 }
 
-#score p,
-#score h2 {
+#score p {
+    font-size: x-large;
     margin: 0px;
-    padding-left: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-weight: 600;
 }
 
 #computer_choose,
@@ -140,4 +149,25 @@ body {
 #player_choose img {
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
+}
+
+#score h2 {
+    color: black;
+    text-align: center;
+    background-color: aquamarine;
+}
+
+#player {
+    color: black;
+    background-color: green;
+}
+
+#computer {
+    color: black;
+    background-color: red;
+}
+
+#draw {
+    color: black;
+    background-color: yellow;
 }
