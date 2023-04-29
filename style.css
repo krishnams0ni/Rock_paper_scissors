@@ -6,6 +6,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0px 200px;
 }
 
 #header {
@@ -14,6 +15,7 @@ body {
     border-radius: 20px;
     background-color: rgb(94, 94, 94);
     padding: 0px 20px;
+    margin: 30px;
 }
 
 #content {
@@ -22,6 +24,23 @@ body {
     align-items: center;
     border-radius: 20px;
     background-color: rgb(54, 54, 54);
+}
+
+#rounds {
+    width: 40px;
+    background-color: rgba(191, 191, 191, 0.406);
+    color: white;
+    border: 0px;
+    border-radius: 5px;
+}
+
+#roundsInp {
+    background-color: rgba(185, 185, 185, 0.406);
+    color: white;
+    margin: 0px;
+    min-width: 100%;
+    min-width: max-content;
+    padding: 5px;
 }
 
 #choose {
@@ -48,8 +67,13 @@ body {
 
 #score {
     background-color: rgb(30, 30, 30);
-    min-width: 33.3%;
+    width: 33.3%;
     border-bottom-left-radius: 20px;
+}
+
+#score p,
+#score h2 {
+    padding: 0px 20px;
 }
 
 #computer_choose,
@@ -57,7 +81,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 33.3%;
+    width: 33.3%;
 }
 
 #computer_choose img,
@@ -70,4 +94,9 @@ body {
     border-right-width: 2px;
     border-right-style: solid;
     border-right-color: rgb(94, 94, 94);
+}
+
+#player_choose img {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
 }
