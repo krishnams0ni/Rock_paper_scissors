@@ -1,48 +1,20 @@
-let rounds = document.querySelector("#rounds").value,
-    count = 0,
-    drawScore = 0,
+let roundsValue = document.querySelector("#rounds").value,
     playerScore = 0,
-    computerScore = 0;
-
-function checkGameOver(i, playerSelection, computerSelection) {
-    if (i < rounds) {
-        whoWins(playerSelection, computerSelection);
-        updateImages(playerSelection, computerSelection);
-        return false;
-    } else {
-        let result;
-        whoWins(playerSelection, computerSelection);
-        if (playerScore > computerScore) {
-            result = "You win!";
-        } else if (playerScore < computerScore) {
-            result = "Computer wins!";
-        } else {
-            result = "It's a draw!";
-        }
-        alert(
-            result +
-                "\nComputer: " +
-                computerScore +
-                "\nPlayer: " +
-                playerScore +
-                "\nDraw: " +
-                drawScore
-        );
-        reset();
-    }
-}
+    computerScore = 0,
+    drawScore = 0,
+    count = 0;
 
 roundsInput = document.querySelector("#rounds");
 roundsInput.addEventListener("change", () => {
-    if (count > 0) {
+    if (document.querySelector("#pannel h2").textContent != "Score") {
+        reset();
+    } else if (count > 0) {
         let choice = confirm(
             "You can't change the number of rounds after the game has started. Do you want to quit?"
         );
         if (choice == true) {
             reset();
         }
-    } else {
-        rounds = roundsInput.value;
     }
 });
 
@@ -50,19 +22,23 @@ const rockButton = document.querySelector("#option_rock");
 rockButton.addEventListener("click", () => {
     playerSelection = "Rock";
     computerSelection = getComputerChoice();
-    checkGameOver(++count, playerSelection, computerSelection);
+    updateHTML(playerSelection, computerSelection);
+    checkGameOver(++count);
 });
+
 const paperButton = document.querySelector("#option_paper");
 paperButton.addEventListener("click", () => {
     playerSelection = "Paper";
     computerSelection = getComputerChoice();
-    checkGameOver(++count, playerSelection, computerSelection);
+    updateHTML(playerSelection, computerSelection);
+    checkGameOver(++count);
 });
 const scissorButton = document.querySelector("#option_scissor");
 scissorButton.addEventListener("click", () => {
     playerSelection = "Scissor";
     computerSelection = getComputerChoice();
-    checkGameOver(++count, playerSelection, computerSelection);
+    updateHTML(playerSelection, computerSelection);
+    checkGameOver(++count);
 });
 
 function getComputerChoice() {
@@ -77,22 +53,25 @@ function getComputerChoice() {
     }
 }
 
-function reset() {
-    rounds = document.querySelector("#rounds").value;
-    count = 0;
-    drawScore = 0;
-    playerScore = 0;
-    computerScore = 0;
-    document.querySelector("#draw").textContent = `Draw: ${drawScore}`;
-    document.querySelector("#player").textContent = `Player: ${playerScore}`;
-    document.querySelector(
-        "#computer"
-    ).textContent = `Computer: ${computerScore}`;
-    document.querySelector("#player_choose img").setAttribute("src", "");
-    document.querySelector("#computer_choose img").setAttribute("src", "");
-}
+function updateHTML(playerSelection, computerSelection) {
+    const computerImage = document.querySelector("#computer_choose img");
+    if (computerSelection === "Rock") {
+        computerImage.setAttribute("src", "img/rock.png");
+    } else if (computerSelection === "Paper") {
+        computerImage.setAttribute("src", "img/paper.png");
+    } else if (computerSelection === "Scissor") {
+        computerImage.setAttribute("src", "img/scissor.png");
+    }
 
-function whoWins(playerSelection, computerSelection) {
+    const playerImage = document.querySelector("#player_choose img");
+    if (playerSelection === "Rock") {
+        playerImage.setAttribute("src", "img/rock.png");
+    } else if (playerSelection === "Paper") {
+        playerImage.setAttribute("src", "img/paper.png");
+    } else if (playerSelection === "Scissor") {
+        playerImage.setAttribute("src", "img/scissor.png");
+    }
+
     if (playerSelection === computerSelection) {
         drawScore++;
         document.querySelector("#draw").textContent = `Draw: ${drawScore}`;
@@ -113,22 +92,40 @@ function whoWins(playerSelection, computerSelection) {
     }
 }
 
-function updateImages(playerSelection, computerSelection) {
-    const computerImage = document.querySelector("#computer_choose img");
-    if (computerSelection === "Rock") {
-        computerImage.setAttribute("src", "img/rock.png");
-    } else if (computerSelection === "Paper") {
-        computerImage.setAttribute("src", "img/paper.png");
-    } else if (computerSelection === "Scissor") {
-        computerImage.setAttribute("src", "img/scissor.png");
+function checkGameOver(i) {
+    roundsValue = document.querySelector("#rounds").value;
+    if (i >= roundsValue) {
+        showResults();
+    }
+}
+
+const result = document.querySelector("#pannel h2");
+function showResults() {
+    if (playerScore > computerScore) {
+        result.textContent = "You win!";
+    } else if (playerScore < computerScore) {
+        result.textContent = "Computer wins!";
+    } else {
+        result.textContent = "It's a draw!";
     }
 
-    const playerImage = document.querySelector("#player_choose img");
-    if (playerSelection === "Rock") {
-        playerImage.setAttribute("src", "img/rock.png");
-    } else if (playerSelection === "Paper") {
-        playerImage.setAttribute("src", "img/paper.png");
-    } else if (playerSelection === "Scissor") {
-        playerImage.setAttribute("src", "img/scissor.png");
+    if (playerScore + computerScore + drawScore > roundsValue) {
+        reset();
     }
+}
+
+function reset() {
+    roundsValue = document.querySelector("#rounds").value;
+    count = 0;
+    drawScore = 0;
+    playerScore = 0;
+    computerScore = 0;
+    document.querySelector("#draw").textContent = `Draw: ${drawScore}`;
+    document.querySelector("#player").textContent = `Player: ${playerScore}`;
+    document.querySelector(
+        "#computer"
+    ).textContent = `Computer: ${computerScore}`;
+    document.querySelector("#player_choose img").setAttribute("src", "");
+    document.querySelector("#computer_choose img").setAttribute("src", "");
+    result.textContent = "Score";
 }
