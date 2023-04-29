@@ -1,29 +1,52 @@
-body {
-    background-color: black;
-    color: white;
-    background-image: url(img/bg.png);
-    background-size: cover;
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
+
+html {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    padding: 0px 200px;
+    justify-content: center;
+    height: 100%;
+    font-family: "Titillium Web", sans-serif;
 }
 
-#header {
-    text-align: center;
-    border: 5px solid red;
+body {
+    color: white;
+    background-image: url(img/bg.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    height: 90%;
+    width: 95%;
+}
+
+#info {
+    width: 40%;
+    background-color: rgba(80, 80, 80, 0.414);
+    height: 100%;
     border-radius: 20px;
-    background-color: rgb(94, 94, 94);
+}
+
+#info p {
     padding: 0px 20px;
-    margin: 30px;
+    font-size: x-large;
 }
 
 #content {
     display: flex;
     flex-direction: column;
-    align-items: center;
     border-radius: 20px;
-    background-color: rgb(54, 54, 54);
+    background-color: rgba(54, 54, 54, 0.4);
+    max-width: 60%;
+    height: 100%;
+}
+
+#header {
+    background-color: rgba(0, 0, 0, 0.443);
+    width: 100%;
+    text-align: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
 #rounds {
@@ -34,29 +57,27 @@ body {
     border-radius: 5px;
 }
 
-#roundsInp {
-    background-color: rgba(185, 185, 185, 0.406);
+.subHeadings {
+    background-color: rgba(81, 81, 81, 0.276);
     color: white;
-    margin: 0px;
-    min-width: 100%;
-    min-width: max-content;
-    padding: 5px;
+    width: 100%;
+    padding: 5px 0px;
+    text-align: center;
+    font-size: larger;
 }
 
 #choose {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 100px;
-    background-color: rgba(111, 111, 111, 0.811);
+    justify-content: space-around;
+    background-color: rgba(111, 111, 111, 0.323);
     padding: 20px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    height: 100%;
 }
 
 #choose img {
-    width: 25%;
+    width: 30%;
 }
 
 #pannel {
@@ -66,7 +87,7 @@ body {
 }
 
 #score {
-    background-color: rgb(30, 30, 30);
+    background-color: rgba(30, 30, 30, 0.514);
     width: 33.3%;
     border-bottom-left-radius: 20px;
 }
@@ -86,12 +107,14 @@ body {
 
 #computer_choose img,
 #player_choose img {
-    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
 }
 
-#player_choose,
-#score {
-    border-right-width: 2px;
+#player_choose {
+    border-right-width: 5px;
     border-right-style: solid;
     border-right-color: rgb(94, 94, 94);
 }
