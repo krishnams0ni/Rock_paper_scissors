@@ -1,7 +1,11 @@
 body {
-    padding: 0px 100px;
     background-color: black;
     color: white;
+    background-image: url(img/bg.png);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #header {
@@ -9,34 +13,43 @@ body {
     border: 5px solid red;
     border-radius: 20px;
     background-color: rgb(94, 94, 94);
+    padding: 0px 20px;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    background-color: rgb(54, 54, 54);
 }
 
 #choose {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 100px;
+    background-color: rgba(111, 111, 111, 0.811);
+    padding: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
-#option_rock,
-#option_paper,
-#option_scissor {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#option_rock img,
-#option_paper img,
-#option_scissor img {
-    height: 150px;
+#choose img {
+    width: 25%;
 }
 
 #pannel {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#score {
+    background-color: rgb(30, 30, 30);
+    min-width: 33.3%;
+    border-bottom-left-radius: 20px;
 }
 
 #computer_choose,
@@ -44,9 +57,17 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 33.3%;
 }
 
 #computer_choose img,
 #player_choose img {
     height: 150px;
+}
+
+#player_choose,
+#score {
+    border-right-width: 2px;
+    border-right-style: solid;
+    border-right-color: rgb(94, 94, 94);
 }
