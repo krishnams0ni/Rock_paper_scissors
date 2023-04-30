@@ -129,3 +129,4 @@ function reset() {
     document.querySelector("#computer_choose img").setAttribute("src", "");
     result.textContent = "Score";
 }
+

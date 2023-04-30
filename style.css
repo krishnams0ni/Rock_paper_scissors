@@ -13,11 +13,12 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    flex-wrap: wrap-reverse;
+}
 
-    /* margin left because order of flexbox items changed by 'order' property */
-    margin-left: 0;
+#divider {
+    width: 10px;
+    order: 2;
 }
 
 #info {
@@ -25,13 +26,13 @@ body {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    font-size: 21px;
+    font-size: 20px;
     flex: 1 1 400px;
     order: 1;
 }
 
 #info p {
-    padding: 0px 20px;
+    padding: 0px 30px;
     flex: 1;
 }
 
@@ -60,8 +61,8 @@ body {
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    flex: 1 1 600px;
-    order: 2;
+    flex: 1 1 700px;
+    order: 3;
 }
 
 #header {
@@ -96,6 +97,10 @@ body {
 
 #choose img {
     width: 30%;
+}
+
+#choose img:hover {
+    transform: scale(1.1);
 }
 
 #pannel {
