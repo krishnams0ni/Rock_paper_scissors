@@ -12,8 +12,10 @@ roundsInput.addEventListener("change", () => {
         let choice = confirm(
             "You can't change the number of rounds after the game has started. Do you want to quit?"
         );
-        if (choice == true) {
+        if (choice === true) {
             reset();
+        } else {
+            roundsInput.value = roundsValue;
         }
     }
 });
@@ -129,4 +131,3 @@ function reset() {
     document.querySelector("#computer_choose img").setAttribute("src", "");
     result.textContent = "Score";
 }
-
